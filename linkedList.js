@@ -12,7 +12,8 @@ class LinkedList {
 
   insertFirst(item) {
     this.head = new _Node(item, this.head);
-    console.log(this.head);
+    return this.head;
+    // console.log(this.head);
   }
 
   insertLast(item) {
@@ -26,7 +27,8 @@ class LinkedList {
         //	console.log('next =', tempNode);
       }
       tempNode.next = new _Node(item, null);
-      console.log(tempNode.next);
+      return tempNode;
+      // console.log(tempNode.next);
     }
   }
 
@@ -81,9 +83,9 @@ class LinkedList {
       }
     }
     let newItem = new _Node(item, currNode.next);
-    currNode.next = newItem;
+    return (currNode.next = newItem);
 
-    console.log(currNode, currNode.next);
+    // console.log(currNode, currNode.next);
   }
 
   insertAfter(item, key) {
@@ -99,9 +101,9 @@ class LinkedList {
       }
     }
     let newItem = new _Node(item, currNode.next);
-    currNode.next = newItem;
+    return (currNode.next = newItem);
 
-    console.log(currNode, currNode.next);
+    // console.log(currNode, currNode.next);
   }
 
   insertAt(item, position) {
@@ -125,9 +127,9 @@ class LinkedList {
       }
     }
     let newItem = new _Node(item, currNode.next);
-    currNode.next = newItem;
-    
-    console.log(currNode, currNode.next);
+    return (currNode.next = newItem);
+
+    // console.log(currNode, currNode.next);
   }
 }
 
