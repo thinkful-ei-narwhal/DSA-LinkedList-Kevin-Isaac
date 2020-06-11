@@ -28,7 +28,6 @@ class LinkedList {
       tempNode.next = new _Node(item, null);
       console.log(tempNode.next);
     }
-
   }
 
   remove(item) {
