@@ -12,6 +12,7 @@ class LinkedList {
 
   insertFirst(item) {
     this.head = new _Node(item, this.head);
+    console.log(this.head);
   }
 
   insertLast(item) {
@@ -25,7 +26,9 @@ class LinkedList {
         //	console.log('next =', tempNode);
       }
       tempNode.next = new _Node(item, null);
+      console.log(tempNode.next);
     }
+
   }
 
   remove(item) {
@@ -81,6 +84,50 @@ class LinkedList {
     let newItem = new _Node(item, currNode.next);
     currNode.next = newItem;
 
+    console.log(currNode, currNode.next);
+  }
+
+  insertAfter(item, key) {
+    if (!this.head) {
+      return 'list does not exist';
+    }
+    let currNode = this.head;
+    while (currNode.value !== key) {
+      if (currNode.next === null) {
+        return null;
+      } else {
+        currNode = currNode.next;
+      }
+    }
+    let newItem = new _Node(item, currNode.next);
+    currNode.next = newItem;
+
+    console.log(currNode, currNode.next);
+  }
+
+  insertAt(item, position) {
+    if (!this.head) {
+      return 'list does not exist';
+    }
+    if (typeof position !== 'number') {
+      return 'position must be a integer';
+    }
+    if (position === 1) {
+      return this.insertFirst(item);
+    }
+    let currentPosition = 1;
+    let currNode = this.head;
+    while (currentPosition < position - 1) {
+      if (currNode.next === null) {
+        return this.insertLast(item);
+      } else {
+        currentPosition++;
+        currNode = currNode.next;
+      }
+    }
+    let newItem = new _Node(item, currNode.next);
+    currNode.next = newItem;
+    
     console.log(currNode, currNode.next);
   }
 }
